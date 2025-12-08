@@ -189,26 +189,3 @@ print(df.head())
 └── pyproject.toml          # Project dependencies
 ```
 
-## 🐳 Docker
-
-```bash
-# Pull from Docker Hub
-docker pull familorujov/synthetic-data-generator-ai:v1.0
-
-# Run
-docker compose up
-```
-
-## 📄 License
-
-MIT License - feel free to use in your projects.
-
----
-
-<div align="center">
-
-**Made with ❤️ by [Famil Orujov](https://github.com/FamilOrujov)**
-
-⭐ Star this repo if you find it useful!
-
-</div>
