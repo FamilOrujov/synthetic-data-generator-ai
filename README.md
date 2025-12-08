@@ -11,11 +11,9 @@
 
 <br>
 
-<img src="https://raw.githubusercontent.com/FamilOrujov/synthetic-data-generator-ai/main/assets/demo.gif" alt="Demo" width="800">
-
 *Describe your data in plain English → Get structured datasets instantly*
 
-[🚀 Quick Start](#-quick-start) • [✨ Features](#-features) • [📖 Usage](#-usage) • [🔧 Configuration](#-configuration)
+[🚀 Quick Start](#-quick-start) • [✨ Features](#-features) • [🏗️ Architecture](#️-architecture) • [📖 Documentation](#-documentation)
 
 </div>
 
@@ -59,25 +57,66 @@ Open http://localhost:8501
 ### Option 2: Local Installation
 
 ```bash
-# Clone
+# Clone the repository
 git clone https://github.com/FamilOrujov/synthetic-data-generator-ai.git
 cd synthetic-data-generator-ai
+```
 
-# Install dependencies
+**Using uv (recommended):**
+```bash
+uv sync
+uv run streamlit run app.py
+```
+
+**Using pip:**
+```bash
 pip install pandas requests streamlit
-
-# Run
 streamlit run app.py
 ```
 
-## 📖 Usage
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         Streamlit UI                            │
+│                          (app.py)                               │
+└─────────────────────────────┬───────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      DataGenerator                              │
+│                  (src/data_generator.py)                        │
+│  • Builds prompts from user instructions                        │
+│  • Parses JSON responses into DataFrames                        │
+│  • Normalizes array lengths for consistency                     │
+└─────────────────────────────┬───────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      LLM Client Layer                           │
+│                       (src/llm.py)                              │
+├─────────────┬─────────────┬─────────────┬───────────┬───────────┤
+│   Ollama    │   OpenAI    │   Gemini    │ Anthropic │   Groq    │
+│   (local)   │   (cloud)   │   (cloud)   │  (cloud)  │  (cloud)  │
+└─────────────┴─────────────┴─────────────┴───────────┴───────────┘
+```
+
+### Core Components
+
+| Component | File | Purpose |
+|-----------|------|---------|
+| **UI Layer** | `app.py` | Streamlit interface, user interactions, session state |
+| **Generator** | `src/data_generator.py` | Core logic: prompt building, response parsing, DataFrame creation |
+| **LLM Clients** | `src/llm.py` | Provider-specific API integrations with unified interface |
+| **Utilities** | `src/utils.py` | JSON extraction, array normalization, CSV export |
+
+## 📖 Documentation
+
+### Usage Guide
 
 1. **Select Provider** — Choose Ollama (local), OpenAI, Gemini, Anthropic, or Groq
 2. **Configure** — Enter API key (if using cloud provider) and click "Apply Settings"
-3. **Describe Data** — Enter natural language instructions like:
-   ```
-   E-commerce products: name, price $10-500, category, in_stock boolean
-   ```
+3. **Describe Data** — Enter natural language instructions
 4. **Generate** — Click Generate and get your dataset
 5. **Export** — Download as CSV
 
@@ -91,15 +130,15 @@ streamlit run app.py
 👔 Employee records: name, department, job_title, salary, years_employed
 ```
 
-## 🔧 Configuration
+### Configuration Options
 
 | Setting | Description | Default |
 |---------|-------------|---------|
-| Temperature | Higher = more creative | 0.7 |
-| Max Tokens | Response limit | 800 |
-| Timeout | Request timeout (seconds) | 300 |
+| Temperature | Higher = more creative, lower = more consistent | 0.7 |
+| Max Tokens | Maximum response length | 800 |
+| Timeout | Request timeout in seconds | 300 |
 
-## 🔌 Supported Providers
+### Supported Providers
 
 | Provider | Models | Notes |
 |----------|--------|-------|
@@ -109,23 +148,55 @@ streamlit run app.py
 | **Anthropic** | Claude Sonnet/Haiku/Opus | Great at following instructions |
 | **Groq** | Various open models | Ultra-fast inference |
 
+### Programmatic Usage
+
+You can use the core components directly without the UI:
+
+```python
+from src.llm import create_llm_client
+from src.data_generator import DataGenerator
+import pandas as pd
+
+# Create client
+client = create_llm_client(
+    provider="openai",
+    model="gpt-4o",
+    api_key="your-api-key"
+)
+
+# Generate data
+generator = DataGenerator(client)
+df = generator.generate_features(
+    instructions="Customer data: name, email, age 25-60",
+    n_rows=50,
+    existing_dataframe=pd.DataFrame()
+)
+
+print(df.head())
+```
+
 ## 📁 Project Structure
 
 ```
-├── app.py              # Streamlit UI
+├── app.py                  # Streamlit UI application
 ├── src/
-│   ├── llm.py          # LLM client implementations
-│   ├── data_generator.py # Core generation logic
-│   └── utils.py        # Helper functions
-├── Dockerfile
-├── docker-compose.yml
-└── pyproject.toml
+│   ├── __init__.py         # Package exports
+│   ├── llm.py              # LLM client implementations (Ollama, OpenAI, etc.)
+│   ├── data_generator.py   # Core generation logic & prompt engineering
+│   └── utils.py            # Helper functions (JSON parsing, normalization)
+├── Dockerfile              # Container configuration
+├── docker-compose.yml      # One-command deployment
+└── pyproject.toml          # Project dependencies
 ```
 
-## 🐳 Docker Hub
+## 🐳 Docker
 
 ```bash
+# Pull from Docker Hub
 docker pull familorujov/synthetic-data-generator-ai:v1.0
+
+# Run
+docker compose up
 ```
 
 ## 📄 License
