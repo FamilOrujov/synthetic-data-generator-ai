@@ -13,13 +13,13 @@
 
 *Describe your data in plain English → Get structured datasets instantly*
 
-[🚀 Quick Start](#-quick-start) • [✨ Features](#-features) • [🏗️ Architecture](#️-architecture) • [📖 Documentation](#-documentation)
+[Quick Start](#-quick-start) • [Features](#-features) • [Architecture](#️-architecture) • [Documentation](#-documentation)
 
 </div>
 
 ---
 
-## 🎯 What is This?
+## What is This?
 
 A Streamlit-based tool that generates realistic tabular data using LLMs. Instead of writing scripts or using random generators, just describe what you need:
 
@@ -29,17 +29,17 @@ A Streamlit-based tool that generates realistic tabular data using LLMs. Instead
 
 And get a clean pandas DataFrame ready to use.
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
-| 🗣️ **Natural Language** | Describe your data in plain English |
-| 🔌 **Multi-Provider** | Ollama, OpenAI, Gemini, Anthropic, Groq |
-| 📊 **Smart Generation** | Add columns incrementally to existing data |
-| 🎛️ **Full Control** | Remove rows/columns, toggle index, export CSV |
-| 🐳 **Docker Ready** | One command deployment |
+| **Natural Language** | Describe your data in plain English |
+| **Multi-Provider** | Ollama, OpenAI, Gemini, Anthropic, Groq |
+| **Smart Generation** | Add columns incrementally to existing data |
+| **Full Control** | Remove rows/columns, toggle index, export CSV |
+| **Docker Ready** | One command deployment |
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Option 1: Docker (Recommended)
 
@@ -74,7 +74,7 @@ pip install pandas requests streamlit
 streamlit run app.py
 ```
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
@@ -110,7 +110,7 @@ streamlit run app.py
 | **LLM Clients** | `src/llm.py` | Provider-specific API integrations with unified interface |
 | **Utilities** | `src/utils.py` | JSON extraction, array normalization, CSV export |
 
-## 📖 Documentation
+## Documentation
 
 ### Usage Guide
 
@@ -175,7 +175,7 @@ df = generator.generate_features(
 print(df.head())
 ```
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── app.py                  # Streamlit UI application
