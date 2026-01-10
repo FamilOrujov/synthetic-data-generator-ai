@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🧬 Synthetic Data Generator AI
+# Synthetic Data Generator AI
 
 **Generate realistic synthetic datasets using natural language prompts powered by LLMs**
 
