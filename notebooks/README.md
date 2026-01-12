@@ -134,7 +134,7 @@ Bank transactions:
 - `streamlit`
 - `pyngrok`
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### "CUDA out of memory"
 - Restart runtime and try with fewer rows
@@ -161,7 +161,7 @@ This notebook is provided for educational and research purposes. Please ensure c
 - [Meta LLaMA License](https://llama.meta.com/llama3/license/)
 - [HuggingFace Terms of Service](https://huggingface.co/terms-of-service)
 
-## 🤝 Contributing
+## Contributing
 
 Found a bug or have a suggestion? Feel free to:
 1. Open an issue
