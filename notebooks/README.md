@@ -92,7 +92,7 @@ Bank transactions:
 - is_fraud (boolean, ~2% true)
 ```
 
-## ⚙️ Configuration Options
+## Configuration Options
 
 | Parameter | Default | Description |
 |-----------|---------|-------------|
@@ -106,7 +106,7 @@ Bank transactions:
 - **0.7-0.9**: More creative, diverse outputs
 - **1.0+**: Highly creative, may be less structured
 
-## 🏗️ Architecture
+## Architecture
 
 ```
 ┌─────────────────┐     ┌──────────────┐     ┌─────────────┐
