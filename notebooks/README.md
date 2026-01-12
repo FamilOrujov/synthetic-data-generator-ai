@@ -1,4 +1,4 @@
-# 🧪 SynthGen Notebook
+# SynthGen Notebook
 
 > **Generate synthetic datasets using LLaMA 3.1 on Google Colab**
 
@@ -24,7 +24,7 @@ Getting LLMs to output valid JSON consistently is harder than it sounds. They lo
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 1. **Open in Colab**: Click the badge below to open directly in Google Colab
 
