@@ -11,9 +11,9 @@
 
 <br>
 
-*Describe your data in plain English → Get structured datasets instantly*
+*Describe your data in plain English and get structured datasets instantly*
 
-[Quick Start](#-quick-start) • [Features](#-features) • [Architecture](#️-architecture) • [Documentation](#-documentation)
+[Quick Start](#quick-start) • [Features](#features) • [Architecture](#architecture) • [Documentation](#documentation)
 
 </div>
 
@@ -68,9 +68,17 @@ uv sync
 uv run streamlit run app.py
 ```
 
-**Using pip:**
+**Using pip and venv:**
 ```bash
-pip install pandas requests streamlit
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+**Using pip directly:**
+```bash
+pip install -r requirements.txt
 streamlit run app.py
 ```
 
@@ -123,11 +131,11 @@ streamlit run app.py
 ### Example Prompts
 
 ```
-👥 Customer database with first_name, last_name, email, age 25-65, city
+Customer database with first_name, last_name, email, age 25-65, city
 
-🛒 Product catalog: name, price ($10-500), category, stock quantity, rating 1-5
+Product catalog: name, price ($10-500), category, stock quantity, rating 1-5
 
-👔 Employee records: name, department, job_title, salary, years_employed
+Employee records: name, department, job_title, salary, years_employed
 ```
 
 ### Configuration Options
@@ -184,8 +192,9 @@ print(df.head())
 │   ├── llm.py              # LLM client implementations (Ollama, OpenAI, etc.)
 │   ├── data_generator.py   # Core generation logic & prompt engineering
 │   └── utils.py            # Helper functions (JSON parsing, normalization)
+├── requirements.txt        # Python dependencies (pip/venv)
+├── pyproject.toml          # Project metadata and dependencies (uv)
 ├── Dockerfile              # Container configuration
-├── docker-compose.yml      # One-command deployment
-└── pyproject.toml          # Project dependencies
+└── docker-compose.yml      # One-command deployment
 ```
 
