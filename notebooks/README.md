@@ -51,7 +51,7 @@ Getting LLMs to output valid JSON consistently is harder than it sounds. They lo
 | **Streamlit UI** | Interactive web interface for data generation |
 | **CSV Export** | Download your generated datasets |
 
-## 📝 Example Prompts
+## Example Prompts
 
 ### Customer Data
 ```
