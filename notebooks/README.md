@@ -168,7 +168,5 @@ Found a bug or have a suggestion? Feel free to:
 2. Submit a pull request
 3. Share your creative use cases!
 
----
 
-**Made with ❤️ using LLaMA 3.1 and HuggingFace Transformers**
 
