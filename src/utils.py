@@ -26,13 +26,30 @@ def extract_json_response(text: str) -> Optional[dict]:
     Returns:
         A dictionary parsed from the JSON, or None if no valid JSON found.
     """
+    if not text or not text.strip():
+        return None
+    
+    # Remove markdown code blocks if present
+    text = re.sub(r'```json\s*', '', text)
+    text = re.sub(r'```\s*', '', text)
+    text = text.strip()
+    
+    # Try direct parsing first
+    try:
+        parsed = json.loads(text)
+        if isinstance(parsed, dict):
+            return parsed
+    except json.JSONDecodeError:
+        pass
+    
+    # Try finding JSON object with decoder
     decoder = json.JSONDecoder()
-    starts = [m.start() for m in re.finditer(r"{", text)]
+    starts = [m.start() for m in re.finditer(r"\{", text)]
 
     for pos in reversed(starts):  # Start from last candidate
         try:
             parsed, _ = decoder.raw_decode(text[pos:])
-            if isinstance(parsed, dict):
+            if isinstance(parsed, dict) and parsed:  # Ensure non-empty dict
                 return parsed
         except json.JSONDecodeError:
             continue

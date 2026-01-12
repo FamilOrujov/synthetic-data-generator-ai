@@ -14,9 +14,11 @@ from .utils import extract_json_response, normalize_array_lengths
 SYSTEM_PROMPT = """You are a synthetic dataset generator. Generate realistic tabular data based on user descriptions.
 
 CRITICAL RULES:
-1. Output ONLY valid JSON - no explanations, no markdown, no extra text
-2. EVERY column array MUST have EXACTLY the same number of elements (matching the requested row count)
-3. Column names should be lowercase with underscores (snake_case)
+1. Output ONLY valid JSON - no explanations, no markdown code blocks, no extra text before or after
+2. Start your response with { and end with }
+3. EVERY column array MUST have EXACTLY the same number of elements (matching the requested row count)
+4. Column names should be lowercase with underscores (snake_case)
+5. Do NOT wrap JSON in ```json or ``` markers
 
 OUTPUT FORMAT:
 {
@@ -40,7 +42,7 @@ EXAMPLE - User asks for "5 rows of people data":
   "email": ["alice.smith@email.com", "bob.j@mail.com", "carol.w@inbox.com", "david.b@email.com", "emma.jones@mail.com"]
 }
 
-Remember: EXACTLY N rows per column where N is the requested count. No more, no less."""
+Remember: Output ONLY the JSON object. EXACTLY N rows per column where N is the requested count."""
 
 
 class DataGenerator:
@@ -110,7 +112,12 @@ class DataGenerator:
         # Parse the response
         parsed_data = extract_json_response(response)
         if parsed_data is None:
-            raise RuntimeError("Failed to parse LLM response as valid JSON.")
+            error_preview = response[:200] if len(response) > 200 else response
+            raise RuntimeError(
+                f"Failed to parse LLM response as valid JSON. "
+                f"Response preview: {error_preview}... "
+                f"Try increasing max_tokens or using a different model."
+            )
 
         # Normalize array lengths to ensure all columns have same length
         normalized_data = normalize_array_lengths(parsed_data, target_rows)
