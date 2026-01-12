@@ -155,7 +155,7 @@ Bank transactions:
 - Check if ngrok URL is accessible
 - Try rerunning the Streamlit cell
 
-## 📄 License
+## License
 
 This notebook is provided for educational and research purposes. Please ensure compliance with:
 - [Meta LLaMA License](https://llama.meta.com/llama3/license/)
