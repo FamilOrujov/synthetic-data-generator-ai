@@ -45,11 +45,11 @@ Getting LLMs to output valid JSON consistently is harder than it sounds. They lo
 
 | Feature | Description |
 |---------|-------------|
-| 🎯 **Natural Language Input** | Describe your data in plain English |
-| 📊 **Structured Output** | Get pandas-compatible DataFrames |
-| 🔧 **4-bit Quantization** | Efficient memory usage on free Colab GPUs |
-| 🖥️ **Streamlit UI** | Interactive web interface for data generation |
-| 💾 **CSV Export** | Download your generated datasets |
+| **Natural Language Input** | Describe your data in plain English |
+| **Structured Output** | Get pandas-compatible DataFrames |
+| **4-bit Quantization** | Efficient memory usage on free Colab GPUs |
+| **Streamlit UI** | Interactive web interface for data generation |
+| **CSV Export** | Download your generated datasets |
 
 ## 📝 Example Prompts
 
