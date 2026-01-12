@@ -120,7 +120,7 @@ Bank transactions:
                         └──────────────┘
 ```
 
-## 📋 Requirements
+## Requirements
 
 - **Google Colab** with GPU runtime (T4 recommended)
 - **HuggingFace Account** with LLaMA model access
