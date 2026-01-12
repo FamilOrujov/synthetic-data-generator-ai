@@ -32,7 +32,7 @@ Getting LLMs to output valid JSON consistently is harder than it sounds. They lo
 
 2. **Set up HuggingFace Token**:
    - Go to [HuggingFace Settings](https://huggingface.co/settings/tokens) and create a token
-   - In Colab, click the 🔑 key icon in the left sidebar
+   - In Colab, click the key icon in the left sidebar
    - Add a secret named `HF_TOKEN` with your token value
 
 3. **Enable GPU Runtime**:
