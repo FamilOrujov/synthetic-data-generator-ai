@@ -41,7 +41,7 @@ Getting LLMs to output valid JSON consistently is harder than it sounds. They lo
 
 4. **Run All Cells**: Execute all cells in order
 
-## ✨ Features
+## Features
 
 | Feature | Description |
 |---------|-------------|
