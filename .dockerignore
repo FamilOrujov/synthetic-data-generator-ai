@@ -44,6 +44,10 @@ htmlcov/
 notebooks/
 *.ipynb
 
+# Generated data files
+*.csv
+dataset*.csv
+
 # Misc
 *.md
 !README.md
