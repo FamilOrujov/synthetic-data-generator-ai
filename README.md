@@ -31,7 +31,7 @@ And get a clean pandas DataFrame ready to use.
 
 <div align="center">
   <img src="assets/main_page.png" alt="Application Interface" width="900" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <p><em>Main application interface with dark theme</em></p>
+  <p><em>Main application interface</em></p>
 </div>
 
 ## Features
