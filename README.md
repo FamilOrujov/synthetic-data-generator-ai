@@ -11,6 +11,8 @@
 
 <br>
 
+<img src="assets/showcase.gif" alt="Synthetic Data Generator Showcase" width="100%" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px;">
+
 *Describe your data in plain English and get structured datasets instantly*
 
 [Quick Start](#quick-start) • [Features](#features) • [Architecture](#architecture) • [Documentation](#documentation)
@@ -29,10 +31,7 @@ A Streamlit-based tool that generates realistic tabular data using LLMs. Instead
 
 And get a clean pandas DataFrame ready to use.
 
-<div align="center">
-  <img src="assets/main_page.png" alt="Application Interface" width="900" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-  <p><em>Main application interface</em></p>
-</div>
+
 
 ## Features
 
