@@ -8,7 +8,7 @@ Supports: Ollama (local), OpenAI, Google Gemini, Anthropic, and Groq.
 import streamlit as st
 import pandas as pd
 
-from src.llm import OllamaClient, create_llm_client, get_provider_models, PROVIDER_MODELS
+from src.llm import OllamaClient, create_llm_client, get_provider_models
 from src.data_generator import DataGenerator
 from src.utils import export_to_csv, validate_row_count
 
@@ -270,7 +270,12 @@ def main():
 
         instructions = st.text_area(
             "Instructions",
-            placeholder="Examples:\n• Customer data with name, email, age (25-60), and city\n• Product catalog: name, price ($10-500), category, in_stock\n• Employee records with department, salary, hire_date",
+            placeholder=(
+                "Examples:\n"
+                "• Customer data with name, email, age (25-60), and city\n"
+                "• Product catalog: name, price ($10-500), category, in_stock\n"
+                "• Employee records with department, salary, hire_date"
+            ),
             height=150,
             help="Describe what data you want. The LLM will figure out appropriate columns and values.",
         )
@@ -428,7 +433,9 @@ def main():
                 )
 
             # Dataset info
-            st.markdown(f"**Shape:** {st.session_state.dataframe.shape[0]} rows × {st.session_state.dataframe.shape[1]} columns")
+            st.markdown(
+                f"**Shape:** {st.session_state.dataframe.shape[0]} rows × {st.session_state.dataframe.shape[1]} columns"
+            )
             st.markdown(f"**Columns:** {', '.join(st.session_state.dataframe.columns)}")
         else:
             st.info("No data generated yet. Use the panel on the left to generate synthetic data.")
@@ -459,4 +466,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

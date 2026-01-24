@@ -153,4 +153,3 @@ class DataGenerator:
         edited_df.drop(columns=selected_features, axis=1, inplace=True)
 
         return edited_df
-

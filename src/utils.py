@@ -28,12 +28,12 @@ def extract_json_response(text: str) -> Optional[dict]:
     """
     if not text or not text.strip():
         return None
-    
+
     # Remove markdown code blocks if present
     text = re.sub(r'```json\s*', '', text)
     text = re.sub(r'```\s*', '', text)
     text = text.strip()
-    
+
     # Try direct parsing first
     try:
         parsed = json.loads(text)
@@ -41,7 +41,7 @@ def extract_json_response(text: str) -> Optional[dict]:
             return parsed
     except json.JSONDecodeError:
         pass
-    
+
     # Try finding JSON object with decoder
     decoder = json.JSONDecoder()
     starts = [m.start() for m in re.finditer(r"\{", text)]
@@ -136,4 +136,3 @@ def normalize_array_lengths(data: dict, target_length: int) -> dict:
             normalized[key] = values[:target_length]
 
     return normalized
-

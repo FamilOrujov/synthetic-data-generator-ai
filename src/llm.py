@@ -264,7 +264,9 @@ class GeminiClient:
         temperature: float = 0.7,
         max_tokens: int = 800,
     ) -> str:
-        api_endpoint = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
+        api_endpoint = (
+            f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
+        )
 
         # Combine system prompt and user prompt
         full_prompt = f"{system_prompt}\n\n{prompt}" if system_prompt else prompt
@@ -425,4 +427,3 @@ def create_llm_client(
         return GroqClient(api_key=api_key, model=model, timeout=timeout)
     else:
         raise ValueError(f"Unknown provider: {provider}")
-
