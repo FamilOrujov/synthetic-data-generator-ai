@@ -9,3 +9,7 @@ requests>=2.31.0
 
 # Web application framework
 streamlit>=1.30.0
+
+# Testing and linting
+pytest>=7.4.0
+flake8>=6.1.0

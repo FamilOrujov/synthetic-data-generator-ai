@@ -85,6 +85,24 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
+## Development
+
+I configured the project to use `uv` for dependency management and testing.
+
+### Running Tests
+To run the test suite, execute:
+
+```bash
+uv run pytest
+```
+
+### Linting
+To check for code style issues:
+
+```bash
+uv run flake8 .
+```
+
 ## Architecture
 
 I structured the project to maintain a separation of concerns between the UI logic and the generation engine.
