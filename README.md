@@ -22,7 +22,7 @@
 
 ## Why I Built This
 
-I developed the Synthetic Dsata Generator AI to address a distinct challenge in the software development lifecycle. I frequently encountered situations where I needed high quality structured data for testing and prototyping. I found that writing manual scripts for every new schema was inefficient and brittle. I realized that by leveraging the semantic understanding of Large Language Models I could create a system that understands vague requirements and produces precise tabular data. I wanted to build a tool that empowers developers to generate complex datasets without writing a single line of generation logic.
+I developed the Synthetic Data Generator AI to address a distinct challenge in the software development lifecycle. I frequently encountered situations where I needed high quality structured data for testing and prototyping. I found that writing manual scripts for every new schema was inefficient and brittle. I realized that by leveraging the semantic understanding of Large Language Models I could create a system that understands vague requirements and produces precise tabular data. I wanted to build a tool that empowers developers to generate complex datasets without writing a single line of generation logic.
 
 ## How It Works
 
